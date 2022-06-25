@@ -59,4 +59,5 @@ Check application script
 ~~~
 python app.py --built_at=2022-06-23T10:09:11.2362766Z --deploy_at=2022-06-23T10:09:11.2362766Z
 ~~~
+If you can build and run docker container without k8s start __build.sh__
 If it has some errors see a report in log.txt
