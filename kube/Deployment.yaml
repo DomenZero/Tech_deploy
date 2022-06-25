@@ -22,16 +22,6 @@ spec:
         - containerPort: 80
         
         env:
-#        - name: MESSAGE
-#          value: "hello world"
-#        command: ["/bin/echo"] 
-#        args: ["--deploy_at=$(MESSAGE)"]
-#         env:
-#         - name: DEP
-#           valueFrom:
-#             configMap:
-#               name: my-configmap
-#               key: deployat
           - name: built_at
             valueFrom:
               configMapKeyRef:
@@ -42,6 +32,4 @@ spec:
               configMapKeyRef:
                 name: date-config
                 key: deployat
-#        command: ["deploy_at=`date +%Y.%m.%d.%H.%M`"]
-#        args: ["$(deploy_at)"]
 ...
