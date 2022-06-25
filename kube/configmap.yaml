@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  builtat: "2022-06-25T12:36:21.5264605Z"
+  deployat: 2022-06-25T15:36:23
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2022-06-25T12:36:23Z"
+  name: date-config
+  namespace: default
+  resourceVersion: "45331"
+  uid: a892f3e0-a0f3-43dc-a550-f54dc210fb74

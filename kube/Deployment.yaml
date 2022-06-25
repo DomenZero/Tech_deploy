@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-test-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dev-test-deployment
+  template:
+    metadata:
+      labels:
+        app: dev-test-deployment
+    spec:
+      containers:
+      - image: dev-test:v1
+        name: dev-test
+        args: ["--built_at=$(built_at)", "--deploy_at=$(deploy_at)"]
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+        
+        env:
+#        - name: MESSAGE
+#          value: "hello world"
+#        command: ["/bin/echo"] 
+#        args: ["--deploy_at=$(MESSAGE)"]
+#         env:
+#         - name: DEP
+#           valueFrom:
+#             configMap:
+#               name: my-configmap
+#               key: deployat
+          - name: built_at
+            valueFrom:
+              configMapKeyRef:
+                name: date-config
+                key: builtat
+          - name: deploy_at
+            valueFrom:
+              configMapKeyRef:
+                name: date-config
+                key: deployat
+#        command: ["deploy_at=`date +%Y.%m.%d.%H.%M`"]
+#        args: ["$(deploy_at)"]
+...
